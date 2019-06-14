@@ -1,0 +1,27 @@
+{
+  "name": "razzle-plugin-manifest",
+  "version": "1.0.0",
+  "description": "Razzle plugin to Export Chunks Path from Webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nimacsoft/razzle-plugin-manifest.git"
+  },
+  "keywords": [
+    "razzle",
+    "plugin",
+    "afterjs"
+  ],
+  "author": "Nima Arefi <nimaarefi@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nimacsoft/razzle-plugin-manifest/issues"
+  },
+	"homepage": "https://github.com/nimacsoft/razzle-plugin-manifest#readme",
+	"dependencies": {
+		"webpack-manifest-plugin": "~2.0.0"
+	}
+}
