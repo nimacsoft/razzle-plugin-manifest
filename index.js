@@ -27,7 +27,7 @@ function modify(baseConfig, { target, dev }, webpack, userOptions = {}) {
             const name =
               (entry.options || {}).name || (entry.runtimeChunk || {}).name;
             const files = []
-              .concat(...(entry.chunks || []).map(chunk => chunk.files))
+              .concat(...(entry.chunks || []).map(chunk => chunk.files && `/${chunk.files}`))
               .filter(Boolean);
 
             const cssFiles = files
