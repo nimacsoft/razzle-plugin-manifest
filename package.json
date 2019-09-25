@@ -1,6 +1,6 @@
 {
   "name": "razzle-plugin-manifest",
-  "version": "1.0.0",
+  "version": "1.0.1-0",
   "description": "Razzle plugin to Export Chunks Path from Webpack",
   "main": "index.js",
   "scripts": {
@@ -20,8 +20,8 @@
   "bugs": {
     "url": "https://github.com/nimacsoft/razzle-plugin-manifest/issues"
   },
-	"homepage": "https://github.com/nimacsoft/razzle-plugin-manifest#readme",
-	"dependencies": {
-		"webpack-manifest-plugin": "~2.0.0"
-	}
+  "homepage": "https://github.com/nimacsoft/razzle-plugin-manifest#readme",
+  "dependencies": {
+    "webpack-manifest-plugin": "~2.0.0"
+  }
 }
