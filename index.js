@@ -1,18 +1,18 @@
-const ManifestPlugin = require("webpack-manifest-plugin")
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 const defaultOptions = {
-	filePath: "./../manifest"
-}
+  filePath: './../manifest',
+};
 
 function modify(baseConfig, { target, dev }, webpack, userOptions = {}) {
   const config = Object.assign({}, baseConfig);
-	const options = Object.assign({}, defaultOptions, userOptions);
+  const options = Object.assign({}, defaultOptions, userOptions);
 
-  if (target === "web") {
+  if (target === 'web') {
     config.plugins.push(
-			// based on https://github.com/danethurber/webpack-manifest-plugin/issues/181#issuecomment-467907737
+      // based on https://github.com/danethurber/webpack-manifest-plugin/issues/181#issuecomment-467907737
       new ManifestPlugin({
-        fileName: options.filePath.concat(".json"),
+        fileName: options.filePath.concat('.json'),
         writeToFileEmit: true,
         filter: item => item.isChunk,
         generate: (seed, files) => {
@@ -27,15 +27,19 @@ function modify(baseConfig, { target, dev }, webpack, userOptions = {}) {
             const name =
               (entry.options || {}).name || (entry.runtimeChunk || {}).name;
             const files = []
-              .concat(...(entry.chunks || []).map(chunk => chunk.files.map(item => `/${item}`)))
+              .concat(
+                ...(entry.chunks || []).map(chunk =>
+                  chunk.files.map(item => `/${item}`)
+                )
+              )
               .filter(Boolean);
 
             const cssFiles = files
-              .map(item => (item.indexOf(".css") !== -1 ? item : null))
+              .map(item => (item.indexOf('.css') !== -1 ? item : null))
               .filter(Boolean);
 
             const jsFiles = files
-              .map(item => (item.indexOf(".js") !== -1 ? item : null))
+              .map(item => (item.indexOf('.js') !== -1 ? item : null))
               .filter(Boolean);
 
             return name
@@ -43,13 +47,13 @@ function modify(baseConfig, { target, dev }, webpack, userOptions = {}) {
                   ...acc,
                   [name]: {
                     css: cssFiles,
-                    js: jsFiles
-                  }
+                    js: jsFiles,
+                  },
                 }
               : acc;
           }, seed);
           return entryArrayManifest;
-        }
+        },
       })
     );
   }
