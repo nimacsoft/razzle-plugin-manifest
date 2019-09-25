@@ -1,6 +1,6 @@
 {
   "name": "razzle-plugin-manifest",
-  "version": "1.0.1-0",
+  "version": "1.0.1",
   "description": "Razzle plugin to Export Chunks Path from Webpack",
   "main": "index.js",
   "scripts": {
