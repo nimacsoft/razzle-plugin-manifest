@@ -29,7 +29,7 @@ function modify(baseConfig, { target, dev }, webpack, userOptions = {}) {
             const files = []
               .concat(
                 ...(entry.chunks || []).map(chunk =>
-                  chunk.files.map(item => `/${item}`)
+                  chunk.files.map(path => baseConfig.output.publicPath + path)
                 )
               )
               .filter(Boolean);
